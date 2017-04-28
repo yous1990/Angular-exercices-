@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AngularJS Input Email Validation</title>
+<style type="text/css">
+/*.error {
+  color: red;
+  font-size:1.1em;
+}
+.valid{
+  color:green;
+  font-size:1.1em;
+}*/
+input.ng-invalid {
+    border: 2px solid pink;
+}
+input.ng-valid {
+  border: 2px solid lightgreen;
+}
+</style>
+<script	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+<script>
+  var app = angular.module('emailExample', [])
+    app.controller('EmailController', ['$scope', function($scope) {
+      // $scope.emailId = 'yousra@gmail.com';
+    }]);
+</script>
+
+</head>
+<body data-ng-app="emailExample">
+<hr>
+  <form name="emailTestForm" ng-controller="EmailController" >
+    Email: <input type="email" name="input" ng-model="emailId"  required>
+    <span class="error" ng-if="emailTestForm.input.$error.required">Required!</span>
+    <span class="error" ng-if="emailTestForm.input.$error.email">Not valid email!</span>
+    <span class="right" ng-if="emailTestForm.input.$valid.email">  valid email!</span>
+  </form>
+<hr>
+</body>
+</html>

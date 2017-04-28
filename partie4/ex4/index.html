@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Exercice 1</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+
+    </head>
+<body ng-app>
+   <div ng-app>
+  	Hello <input type="checkbox" ng-model="voir"><br/>
+  	<p ng-show="voir">world !</p>
+  	Cochez pour ne pas voir la suite : <input type="checkbox" ng-model="cacher"><br/>
+  	<p ng-hide="cacher">thank you </p>
+  </div> 
+
+</body>
+</html>

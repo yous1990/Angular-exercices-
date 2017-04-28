@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Exercice 1</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+
+    </head>
+<body>
+  <div ng-app="voitureApp">
+	     <div ng-controller="voitureCtrl">
+         <table cellspacing="2px" cellpadding="3px;" rules="all" style="border:solid 1px black;">
+           <thead>
+             <th>Modèle</th>
+             <th>Couleur</th>
+           </thead>
+           <tr ng-repeat="voiture in voitures">
+             <td>
+               {{voiture.marque}}
+             </td>
+             <td>
+               {{voiture.couleur}}
+             </td>
+           </tr>
+         </table>
+       </div>
+</div>
+<script>
+var app = angular.module('voitureApp', []);
+
+app.controller('voitureCtrl', function($scope) {
+    $scope.voitures = [
+      {"marque":"Renault", "couleur":"verte"},
+		{"marque":"Citroen", "couleur":"grise"},
+		{"marque":"Opel", "couleur":"or"},
+		{"marque":"Ferrari", "couleur":"rouge"},
+		{"marque":"Peugeot", "couleur":"bleu"},
+{"marque":"Nissan", "couleur":"verte"}
+];
+});
+</script>
+</body>
+</html>

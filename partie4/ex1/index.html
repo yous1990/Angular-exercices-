@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Exercice 1</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+
+    </head>
+<body>
+  <div ng-app>
+	<button ng-click="number = number + 1" ng-init="number=1">+</button>
+  <button ng-click="number = number - 1" ng-model="number">-</button>
+	<p>Nombre : {{number}} </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS Input Email Validation</title>
+  <style type="text/css">
+  input.ng-invalid {
+    border: 2px solid red;
+  }
+  input.ng-valid {
+    border: 2px solid lightgreen;
+  }
+  </style>
+
+</head>
+<!--formulaire nom/mail/message -->
+<body data-ng-app="emailExample">
+  <hr>
+  <form name="myForm" ng-controller="EmailController" >
+    <p>Email:<br>
+       <input type="email" name="input" ng-model="emailId"  required>
+      <span class="error" ng-if="myForm.input.$error.required">Required!</span>
+      <span class="error" ng-if="myForm.input.$error.email">Not valid email!</span>
+      <span class="right" ng-if="myForm.input.$valid.email">  valid email!</span>
+    </p>
+    <p>Name: <br>
+      <input type="text"
+            name="username"
+            placeholder="Username"
+            class="form-control"
+            ng-model="credentials.username"
+            ng-minlength=5
+            required
+            ng-unique="{key: 'users', property: 'username'}"
+            ng-pattern="/^[a-zA-Z0-9]*$/"
+            autofocus />
+      <span class="glyphicon glyphicon-ok form-control-icon success"></span>
+      <span ng-show="myForm.username.$error.required">Username is required.</span>
+      <span ng-show="myForm.username.$error.pattern">Username must be letters and numbers only.</span>
+      <span ng-if="myForm.username.$error.minlength">Must be at least 5 characters.</span>
+      <span ng-show="myForm.username.$error.unique">Username is already taken.</span>
+  </p>Message: <br>
+  <textarea class="form-control" rows="5" name="message" ng-model="user.body"
+            ng-minlength=5
+            ng-maxlength=20
+            ng-pattern="/^[a-zA-Z0-9]*$/"
+            required="required" placeholder="Your messsage"></textarea>
+      <span class="help-inline" ng-show="myForm.message.$error.required">Required</span>
+      <span class="help-inline" ng-show="myForm.message.$error.minlength">Must be at least 5 characters.</span>
+      <span class="help-inline" ng-show="myForm.message.$error.maxlength">Must be at max 20 characters.</span>
+
+  </p>
+  <p>contenu mail: {{user.body}} </p>
+  <button ng-click="afficher()"> </button>
+  </form>
+  <script	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+  <script>
+    var app = angular.module('emailExample', [])
+    app.controller('EmailController', ['$scope', function($scope) {
+      // $scope.emailId = 'yousra@gmail.com';
+      $scope.alerter = function() {
+      alert(text);
+    }
+    }]);
+</script>
+</body>
+</html>
